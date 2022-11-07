@@ -6,7 +6,6 @@ import com.pragma.challenge.clean.application.mapper.IPersonMapper;
 import com.pragma.challenge.clean.domain.api.IPersonServicePort;
 import com.pragma.challenge.clean.domain.model.Person;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class PersonHandler implements IPersonHandler {
+public class PersonHandlerImpl implements IPersonHandler {
 
     private final IPersonServicePort personServicePort;
     private final IPersonMapper personMapper;

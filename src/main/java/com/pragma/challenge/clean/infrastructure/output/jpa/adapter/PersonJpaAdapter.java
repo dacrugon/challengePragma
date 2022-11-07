@@ -6,8 +6,8 @@ import com.pragma.challenge.clean.infrastructure.exception.NoDataFoundException;
 import com.pragma.challenge.clean.infrastructure.exception.PersonAlreadyExistsException;
 import com.pragma.challenge.clean.infrastructure.exception.PersonNotFoundException;
 import com.pragma.challenge.clean.infrastructure.output.jpa.entity.PersonEntity;
-import com.pragma.challenge.clean.infrastructure.output.jpa.mapper.PersonEntityMapper;
 import com.pragma.challenge.clean.infrastructure.output.jpa.repository.IPersonRepository;
+import com.pragma.challenge.clean.infrastructure.output.jpa.mapper.IPersonEntityMapper;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.Optional;
 public class PersonJpaAdapter implements IPersonPersistencePort {
 
     private final IPersonRepository personRepository;
-    private final PersonEntityMapper personEntityMapper;
+    private final IPersonEntityMapper IPersonEntityMapper;
 
     @Override
     public void savePerson(Person person) {
         if(personRepository.findByIdentificationNumber(person.getIdentificationNumber()).isPresent()){
             throw new PersonAlreadyExistsException();
         }
-        personRepository.save(personEntityMapper.toEntity(person));
+        personRepository.save(IPersonEntityMapper.toEntity(person));
     }
 
     @Override
@@ -33,7 +33,7 @@ public class PersonJpaAdapter implements IPersonPersistencePort {
         if(personEntityList.isEmpty()){
             throw new NoDataFoundException();
         }
-        return personEntityMapper.toPersonList(personEntityList);
+        return IPersonEntityMapper.toPersonList(personEntityList);
     }
 
     @Override
@@ -42,13 +42,13 @@ public class PersonJpaAdapter implements IPersonPersistencePort {
         if(personEntity.isEmpty()){
             throw new NoDataFoundException();
         }
-        return personEntityMapper.toPersonList(List.of(personEntity.get()));
+        return IPersonEntityMapper.toPersonList(List.of(personEntity.get()));
     }
 
 
     @Override
     public Person getPersonByIdentificationNumber(String in) {
-        return personEntityMapper.toPerson(personRepository.findByIdentificationNumber(in).orElseThrow(PersonNotFoundException::new));
+        return IPersonEntityMapper.toPerson(personRepository.findByIdentificationNumber(in).orElseThrow(PersonNotFoundException::new));
     }
 
 
@@ -59,6 +59,6 @@ public class PersonJpaAdapter implements IPersonPersistencePort {
 
     @Override
     public void updatePerson(Person person) {
-        personRepository.save(personEntityMapper.toEntity(person));
+        personRepository.save(IPersonEntityMapper.toEntity(person));
     }
 }

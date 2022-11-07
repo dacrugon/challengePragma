@@ -1,23 +1,20 @@
 package com.pragma.challenge.clean.domain.model;
 
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Picture {
 
     private String id;
     private String identificationNumber;
     private String pictureName;
-    private LocalDateTime createdDate = LocalDateTime.now();
+    private Date createdDate;
 
-    public Picture(String id, String identificationNumber, String pictureName, LocalDateTime createdDate) {
+    public Picture(String id, String identificationNumber, String pictureName, Date createdDate) {
         this.id = id;
         this.identificationNumber = identificationNumber;
         this.pictureName = pictureName;
         this.createdDate = createdDate;
-    }
-
-    public Picture() {
     }
 
     public String getId() {
@@ -44,11 +41,11 @@ public class Picture {
         this.pictureName = pictureName;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 }
