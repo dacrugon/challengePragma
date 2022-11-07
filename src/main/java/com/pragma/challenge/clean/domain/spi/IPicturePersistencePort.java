@@ -10,10 +10,10 @@ public interface IPicturePersistencePort {
 
     List<Picture> getAllPictures();
 
-    Picture getPictureByIdentificationNumber(String id);
+    Picture getPictureByIdentificationNumber(String in);
 
     void updatePicture(Picture picture);
 
-    void deletePictureByIdentificationNumber(String id);
+    void deletePictureByIdentificationNumber(String in);
 
 }

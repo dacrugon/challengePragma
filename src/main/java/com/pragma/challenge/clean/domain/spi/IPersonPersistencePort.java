@@ -10,13 +10,13 @@ public interface IPersonPersistencePort {
 
     List<Person> getAllPersons();
 
-    List<Person> getPeopleAgeGreaterThanOrEqualsTo(Integer age);
+   /* List<Person> getPeopleByAgeGreaterThanOrEqualsTo(Integer age);*/
 
-    Person getPersonByIdentificationNumber(String id);
+    Person getPersonByIdentificationNumber(String in);
 
+    void deletePersonByIdentificationNumber(String in);
     void updatePerson(Person person);
 
-    void deletePersonByIdentificationNumber(String id);
 
 
 }

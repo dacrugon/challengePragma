@@ -3,6 +3,8 @@ package com.pragma.challenge.clean.application.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 public class PersonResponse {
@@ -11,6 +13,7 @@ public class PersonResponse {
     private String lastName;
     private String identificationType;
     private String identificationNumber;
-    private String dateBirth;
+    private Date dateBirth;
     private String cityBirth;
+    private Date createdDate;
 }

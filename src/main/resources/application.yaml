@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/pragma_challenge?useSSL=false&serverTimezone=America/Bogota
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+  data:
+    mongodb:
+      uri: mongodb+srv://joseg:948900930@cluster0.ncakizs.mongodb.net/pragma_challenge?retryWrites=true&w=majority
+
+appDescription: "Person API"
+appVersion: "1.0.0"
+

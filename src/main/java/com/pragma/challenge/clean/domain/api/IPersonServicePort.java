@@ -10,11 +10,11 @@ public interface IPersonServicePort {
 
     List<Person> getAllPersons();
 
-    List<Person> getPeopleAgeGreaterThanOrEqualsTo(Integer age);
+   /* List<Person> getPeopleByAgeGreaterThanOrEqualsTo(Integer age);*/
 
     Person getPersonByIdentificationNumber(String in);
 
-    void updatePerson(Person person);
-
     void deletePersonByIdentificationNumber(String in);
+
+    void updatePerson(Person person);
 }

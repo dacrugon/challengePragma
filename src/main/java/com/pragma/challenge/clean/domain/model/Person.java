@@ -11,9 +11,9 @@ public class Person {
     private String identificationNumber;
     private Date dateBirth;
     private String cityBirth;
-    private LocalDateTime createdDate = LocalDateTime.now();
+    private Date createdDate;
 
-    public Person(Long id, String name, String lastName, String identificationType, String identificationNumber, Date dateBirth, String cityBirth, LocalDateTime createdDate) {
+    public Person(Long id, String name, String lastName, String identificationType, String identificationNumber, Date dateBirth, String cityBirth, Date createdDate) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -22,9 +22,6 @@ public class Person {
         this.dateBirth = dateBirth;
         this.cityBirth = cityBirth;
         this.createdDate = createdDate;
-    }
-
-    public Person() {
     }
 
     public Long getId() {
@@ -83,11 +80,11 @@ public class Person {
         this.cityBirth = cityBirth;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 }
