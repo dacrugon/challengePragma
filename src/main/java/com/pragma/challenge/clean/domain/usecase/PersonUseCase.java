@@ -24,10 +24,10 @@ public class PersonUseCase implements IPersonServicePort {
         return personPersistencePort.getAllPersons();
     }
 
-/*    @Override
-    public List<Person> getPeopleByAgeGreaterThanOrEqualsTo(Integer age) {
-        return personPersistencePort.getPeopleByAgeGreaterThanOrEqualsTo(age);
-    }*/
+    @Override
+    public List<Person> findPeopleByAgeGreaterThanOrEqualsTo(Integer age) {
+        return personPersistencePort.findPeopleByAgeGreaterThanOrEqualsTo(age);
+    }
 
 
     @Override

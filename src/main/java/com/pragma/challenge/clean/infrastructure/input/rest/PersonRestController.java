@@ -29,10 +29,10 @@ public class PersonRestController {
     public ResponseEntity<PersonResponse> getPersonByIdentificationNumber(@PathVariable String in){
         return ResponseEntity.ok(personHandler.getPersonByIdentificationNumber(in));
     }
-/*    @GetMapping("/people/greaterThanOrEqualTo/{age}")
-    public ResponseEntity<List<PersonResponse>> getPeopleByAgeGreaterThanOrEqualsTo(Integer age){
-        return ResponseEntity.ok(personHandler.getPeopleByAgeGreaterThanOrEqualsTo(age));
-    }*/
+    @GetMapping("/people/greaterThanOrEqualTo/{age}")
+    public ResponseEntity<List<PersonResponse>> getPeopleByAgeGreaterThanOrEqualsTo(@PathVariable Integer age){
+        return ResponseEntity.ok(personHandler.findPeopleByAgeGreaterThanOrEqualsTo(age));
+    }
     @PutMapping("/people/{in}")
     public ResponseEntity<Void> updatePerson(PersonRequest personRequest, @PathVariable String in){
         personHandler.updatePerson(personRequest,in);

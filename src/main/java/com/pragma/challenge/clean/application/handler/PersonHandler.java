@@ -34,12 +34,10 @@ public class PersonHandler implements IPersonHandler {
 
     }
 
-/*
     @Override
-    public List<PersonResponse> getPeopleByAgeGreaterThanOrEqualsTo(Integer age) {
-        return personMapper.toListPersonResponse(personServicePort.getPeopleByAgeGreaterThanOrEqualsTo(age));
+    public List<PersonResponse> findPeopleByAgeGreaterThanOrEqualsTo(Integer age) {
+        return personMapper.toListPersonResponse(personServicePort.findPeopleByAgeGreaterThanOrEqualsTo(age));
     }
-*/
 
     @Override
     public PersonResponse getPersonByIdentificationNumber(String in) {

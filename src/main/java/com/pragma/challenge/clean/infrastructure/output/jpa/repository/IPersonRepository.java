@@ -8,11 +8,19 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface IPersonRepository extends JpaRepository<PersonEntity,Long> {
+public interface IPersonRepository extends JpaRepository<PersonEntity, Long> {
 
     Optional<PersonEntity> findByIdentificationNumber(String in);
 
-    /*Optional<PersonEntity> findPeopleByAgeGreaterThanOrEqualsTo(Integer age);*/
+/*    @Query("SELECT p FROM Person p WHERE timestampdiff(year, p.dateBirth, curdate()) >= ?1")*/
+    @Query(
+            value = " SELECT * " +
+                    " FROM people " +
+                    " WHERE timestampdiff(year, date_birth, curdate()) >= :age ",
+            countQuery = " select count(*) from person",
+            nativeQuery = true
+    )
+    Optional<PersonEntity> findPeopleByAgeGreaterThanOrEqualsTo(Integer age);
 
     void deleteByIdentificationNumber(String in);
 }

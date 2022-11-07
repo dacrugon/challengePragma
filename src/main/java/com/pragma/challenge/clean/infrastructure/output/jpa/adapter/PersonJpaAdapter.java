@@ -36,14 +36,14 @@ public class PersonJpaAdapter implements IPersonPersistencePort {
         return personEntityMapper.toPersonList(personEntityList);
     }
 
-/*    @Override
-    public List<Person> getPeopleByAgeGreaterThanOrEqualsTo(Integer age) {
+    @Override
+    public List<Person> findPeopleByAgeGreaterThanOrEqualsTo(Integer age) {
         Optional<PersonEntity> personEntity = personRepository.findPeopleByAgeGreaterThanOrEqualsTo(age);
         if(personEntity.isEmpty()){
             throw new NoDataFoundException();
         }
         return personEntityMapper.toPersonList(List.of(personEntity.get()));
-    }*/
+    }
 
 
     @Override

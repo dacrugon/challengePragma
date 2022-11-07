@@ -10,7 +10,7 @@ public interface IPersonHandler {
     void savePerson(PersonRequest personRequest);
     List<PersonResponse> getAllPersons();
 
-    /*List<PersonResponse> getPeopleByAgeGreaterThanOrEqualsTo(Integer age);*/
+    List<PersonResponse> findPeopleByAgeGreaterThanOrEqualsTo(Integer age);
 
     PersonResponse getPersonByIdentificationNumber(String in);
     void updatePerson(PersonRequest personRequest, String in);
