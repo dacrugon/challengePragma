@@ -47,7 +47,6 @@ public class PersonHandlerImpl implements IPersonHandler {
     public void updatePerson(PersonRequest personRequest, String in) {
         Person currentPerson = personServicePort.getPersonByIdentificationNumber(in);
         Person person = personMapper.toPerson(personRequest);
-        Person personUpdated;
 
         currentPerson.setLastName(person.getLastName());
         currentPerson.setName(person.getName());
