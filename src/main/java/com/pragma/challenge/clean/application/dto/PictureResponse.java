@@ -9,13 +9,8 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PersonResponse {
-
-    private String name;
-    private String lastName;
-    private String identificationType;
+public class PictureResponse {
     private String identificationNumber;
-    private Date dateBirth;
-    private String cityBirth;
+    private String pictureName;
     private Date createdDate;
 }
