@@ -19,11 +19,6 @@ public interface IPictureMapper {
 
     Picture toPicture(PictureRequest pictureRequest);
 
-/*    @Named("getPictureName")
-    static String getPictureName(MultipartFile imageFile){
-        return imageFile.getOriginalFilename();
-    }*/
-
     PictureResponse toPictureResponse(Picture picture);
 
     List<PictureResponse> toPictureResponseList(List<Picture> pictureList);

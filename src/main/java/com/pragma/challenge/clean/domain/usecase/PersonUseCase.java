@@ -5,6 +5,7 @@ import com.pragma.challenge.clean.domain.model.Person;
 import com.pragma.challenge.clean.domain.spi.IPersonPersistencePort;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PersonUseCase implements IPersonServicePort {
 

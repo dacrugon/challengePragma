@@ -3,6 +3,7 @@ package com.pragma.challenge.clean.domain.api;
 import com.pragma.challenge.clean.domain.model.Person;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IPersonServicePort {
 
