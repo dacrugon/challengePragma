@@ -1,15 +1,12 @@
 package com.pragma.challenge.clean.infrastructure.input.rest;
 
 import com.pragma.challenge.clean.application.dto.PersonRequest;
-import com.pragma.challenge.clean.application.dto.PersonResponse;
 import com.pragma.challenge.clean.application.handler.IPersonHandler;
 import com.pragma.challenge.clean.common.response.ResponseHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")

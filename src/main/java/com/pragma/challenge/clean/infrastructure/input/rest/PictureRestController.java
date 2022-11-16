@@ -1,10 +1,8 @@
 package com.pragma.challenge.clean.infrastructure.input.rest;
 
-import com.pragma.challenge.clean.application.dto.PersonResponse;
 import com.pragma.challenge.clean.application.dto.PictureRequest;
-import com.pragma.challenge.clean.application.dto.PictureResponse;
 import com.pragma.challenge.clean.application.handler.IPictureHandler;
-import com.pragma.challenge.clean.domain.model.Picture;
+import com.pragma.challenge.clean.common.response.ResponseHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -17,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -30,19 +27,19 @@ public class PictureRestController {
     private String path;
 
     @PostMapping("/pictures")
-    public ResponseEntity<Void> savePicture(PictureRequest pictureRequest){
+    public ResponseEntity<Object> savePicture(PictureRequest pictureRequest){
         pictureHandler.savePicture(pictureRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseHandler.generateResponseWithoutData("P-201","successful", HttpStatus.OK);
     }
 
     @GetMapping("/pictures")
-    public ResponseEntity<List<PictureResponse>> getPictures(){
-       return ResponseEntity.ok(pictureHandler.getAllPictures());
+    public ResponseEntity<Object> getPictures(){
+       return ResponseHandler.generateResponseWithData("P-201","successful",pictureHandler.getAllPictures(),HttpStatus.OK);
     }
 
     @GetMapping("/pictures/{in}")
-    public ResponseEntity<PictureResponse> getPictureByIdentificationNumber(@PathVariable String in){
-        return ResponseEntity.ok(pictureHandler.getPictureByIdentificationNumber(in));
+    public ResponseEntity<Object> getPictureByIdentificationNumber(@PathVariable String in){
+        return ResponseHandler.generateResponseWithData("P-201","successful",pictureHandler.getPictureByIdentificationNumber(in),HttpStatus.OK);
     }
 
     @GetMapping(value="/pictures/download/{in}",produces = MediaType.IMAGE_JPEG_VALUE)
@@ -57,13 +54,15 @@ public class PictureRestController {
     }
 
     @PutMapping("/pictures/{in}")
-    public void updatePictureByIdentificationNumber(@PathVariable String in, MultipartFile imageFile){
+    public ResponseEntity<Object> updatePictureByIdentificationNumber(@PathVariable String in, MultipartFile imageFile){
         pictureHandler.updatePictureByIdentificationNumber(in,imageFile);
+        return ResponseHandler.generateResponseWithoutData("P-202","Updated",HttpStatus.OK);
     }
 
     @DeleteMapping("/pictures/{in}")
-    public void deletePictureByIdentificationNumber(@PathVariable String in){
+    public ResponseEntity<Object> deletePictureByIdentificationNumber(@PathVariable String in){
         pictureHandler.deletePictureByIdentificationNumber(in);
+        return ResponseHandler.generateResponseWithoutData("P-203","Deleted",HttpStatus.OK);
     }
 
 }
